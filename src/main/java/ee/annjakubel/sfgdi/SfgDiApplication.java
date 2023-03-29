@@ -1,9 +1,6 @@
 package ee.annjakubel.sfgdi;
 
-import ee.annjakubel.sfgdi.Controllers.ConstructorInjectedController;
-import ee.annjakubel.sfgdi.Controllers.MyController;
-import ee.annjakubel.sfgdi.Controllers.PropertyInjectedController;
-import ee.annjakubel.sfgdi.Controllers.SetterInjectedController;
+import ee.annjakubel.sfgdi.Controllers.*;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
@@ -21,6 +18,9 @@ public class SfgDiApplication {
 		MyController myController = (MyController) ctx.getBean("myController");
 		//Spring is providing an instance of MyController object though context container.
 		//No need for new keyword.
+
+		I18nController i18nController = (I18nController) ctx.getBean("i18nController");
+		System.out.println(i18nController.sayHello());
 
 		System.out.println("------- Primary Bean");
 		System.out.println(myController.sayHello());
